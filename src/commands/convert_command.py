@@ -68,16 +68,22 @@ def run_convert_command(
             if updated_list.exists():
                 updated_only_file = updated_list
                 print("Converting recently updated notebooks only")
-
-        success, _converted = run_conversion(
+        ##EDIT dd 260612 door INEZ adhv COPILOT COWORK (nieuwe snippet hieronder)
+        # success, _converted = run_conversion(
+        #     backup_dir=backup_dir,
+        #     output_dir=output_dir,
+        #     verbose=log_level,
+        #     sample=sample,
+        #     notebook_filter=notebook,
+        #     updated_only=updated_only_file,
+        # )
+        success, _converted, _merged = run_conversion(
             backup_dir=backup_dir,
             output_dir=output_dir,
             verbose=log_level,
             sample=sample,
             notebook_filter=notebook,
-            updated_only=updated_only_file,
         )
-
         return 0 if success else 1
 
     except KeyboardInterrupt:
